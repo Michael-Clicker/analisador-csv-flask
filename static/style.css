@@ -37,11 +37,11 @@ body {
 }
   .principal {
   width: 100%;
-  max-width: 900px; /* Define um limite de largura para não espalhar na tela */
-  padding: 40px 20px; /* Cria um espaçamento generoso abaixo do header */
+  max-width: 900px; 
+  padding: 40px 20px; 
   display: flex;
   flex-direction: column;
-  gap: 30px; /* Cria um espaço automático perfeito entre o Form e o Resultado */
+  gap: 30px;
 }
 form {
   display: flex;
@@ -101,7 +101,7 @@ input[type="file"] {
   align-items: center;
   padding: 30px;
   border-radius: 15px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Mesma sombra do formulário */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
 }
 .tabela-container {
   width: 100%;
@@ -133,4 +133,10 @@ input[type="file"] {
 }
 .tabela-dados tr:hover {
   background-color: #f1f3f5;
+}
+.espera {
+  font-size: 1.5em;
+  font-weight: bolder;
+  text-align: center;
+  color: #666;
 }

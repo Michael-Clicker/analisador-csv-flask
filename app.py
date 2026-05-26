@@ -16,17 +16,30 @@ def index():
                 df = pd.read_csv(file)
                 
                 #1 resumo de df 
-                resumo = df.describe().to_html(classes='tabela-dados')
+                resumo_df = df.describe()
+                traducao_describe = {
+                'count': 'Contagem',
+                'mean': 'Média',
+                'std': 'Desvio Padrão',
+                'min': 'Mínimo',
+                'max': 'Máximo',
+                }
+                resumo_df = resumo_df.rename(index=traducao_describe)
+                resumo = resumo_df.to_html(classes='tabela-dados')
 
                 #2 head de df
-                head = df.head(5).to_html(classes='tabela-dados')
+                df_head = df.head(5)
+                df_head.index = df_head.index + 1
+                head = df_head.to_html(classes='tabela-dados')
 
                 #3 info de df
                 info_generica = {
                     'Total de linhas': [df.shape[0]],
                     'Total de colunas': [df.shape[1]],
                     'Colunas númericas': [len(df.select_dtypes(include=['number']).columns)],
-                    'Colunas de texto': [len(df.select_dtypes(include=['object', 'string']).columns)]
+                    'Colunas de texto': [len(df.select_dtypes(include=['object', 'string']).columns)],
+                    'Total de dados vazios': [int(df.isnull().sum().sum())]
+
                 }
                 info = pd.DataFrame(info_generica).to_html(classes='tabela-dados', index=False)
 
