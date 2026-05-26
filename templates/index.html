@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<title>Analisador CSV</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<style>
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+      box-sizing: border-box;
+}  
+:root {
+  --fundo: #F1F1F1;
+  --fundo-app: #0F2854;
+  --principal: #1C4D8D;  
+}
+body {
+  background: var(--fundo);
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cabeçalho {
+  width: 100%;
+  background: var(--fundo-app);
+  margin-bottom: 40px;
+  padding: 20px 0 25px 0;
+}
+.cabeçalho div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color:aliceblue;
+}
+.titulo {
+  font-size:2.5em;
+  font-weight:500;
+}
+.subtitulo {
+  font-family: Lato;
+  font-weight: 300;
+}
+.principal {
+  padding: 20px 20px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  background: white;
+  padding: 30px 30px;
+  box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+input[type="file"] {
+  display: none;
+}
+.uploader {
+  width: 400px;
+  border: 3px dashed var(--principal);
+  background: #cae5ed;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding:20px 20px;
+  height: 200px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 25px;
+}
+.uploader:hover {
+  background: #c0edfa;
+}
+.uploader i {
+  font-size: 36px;
+  color: var(--principal);
+  transition: 0,2s
+}
+.uploader span {
+  margin-top: 10px;
+  font-size: 1.3em;
+}
+.envio {
+  cursor: pointer;
+  background: var(--principal);
+  font-size: 1.2em;
+  width: 200px;
+  border: none;
+  color: aliceblue;
+  padding: 10px 10px;
+  border-radius: 5px;
+  transition: 0.2s;
+  font-weight: 550;
+}
+.envio:hover {
+  background: #4c8ee6;
+}
+.resultado {
+  margin-top: 25px;
+  background: #dcdcdc;
+  padding: 10px 10px;
+}
+</style>
+<body>
+<header class="cabeçalho">
+  <div class="conteudo-cabeçalho">
+    <span class="titulo"><strong>Analista de dados</strong></span>
+	<span class="subtitulo"><p>Transformando CSV em insights valiosos com pyhton</p></span>
+  </div>
+</header>
+<main class="principal">
+  <section class="form">
+    <div class="input">
+      <form action="/" enctype="multipart/form-data" method="post">
+        <label for="csv" class="uploader" name="arquivo">
+          <i class="fa-solid fa-cloud"></i><span>Arraste ou Carregue seu CSV</span>
+        </label>
+        <input type="file" id="csv" name="csv" required>
+        <input type="submit" class="envio" value="Analisar Dados">
+      </form> 
+    </div>
+  </section>
+  <section class="resultado">
+  <div>
+    {% if resultado_pandas != None %}
+       <h2>Resumo Estatístico dos Dados:</h2>
+       <div class="tabela-container">
+         {{ resultado_pandas | safe }}
+       </div>
+    {% else %}
+      <p>Seu resultado aparecerá aqui</p>
+    {% endif %}
+  </div>
+</section>
+</main>
+<script>
+  document.getElementById('csv').onchange = function() {
+    const arquivoNome = this.files[0].name
+    document.querySelector('.uploader span').innerText = (`Arquivo ${arquivoNome}`)
+    document.querySelector('.uploader').style.borderColor = ("#28a745")
+    document.querySelector('.uploader').style.background = ("#e8f5e9")
+    document.querySelector('.uploader i').className = ("fa-solid fa-circle-check")
+    document.querySelector('.uploader i').style.color = ("#28a745")
+  }
+</script>
+</body>
+</html>

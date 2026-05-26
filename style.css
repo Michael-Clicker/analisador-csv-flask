@@ -1,0 +1,9 @@
+:root {
+  --fundo: #f4;
+  --funfo-app: #0F2854;
+  --principal: #1C4D8D;  
+}
+header {
+  width: 100%;
+  align-items: center; 
+}
