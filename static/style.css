@@ -35,8 +35,13 @@ body {
   font-family: Lato;
   font-weight: 300;
 }
-.principal {
-  padding: 20px 20px;
+  .principal {
+  width: 100%;
+  max-width: 900px; /* Define um limite de largura para não espalhar na tela */
+  padding: 40px 20px; /* Cria um espaçamento generoso abaixo do header */
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Cria um espaço automático perfeito entre o Form e o Resultado */
 }
 form {
   display: flex;
@@ -92,7 +97,40 @@ input[type="file"] {
   background: #4c8ee6;
 }
 .resultado {
-  margin-top: 25px;
-  background: #dcdcdc;
-  padding: 10px 10px;
+  background: white;
+  align-items: center;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Mesma sombra do formulário */
+}
+.tabela-container {
+  width: 100%;
+  overflow-x: auto; /* Cria barra de rolagem horizontal se o CSV for gigante */
+  margin-top: 15px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.tabela-dados {
+  width: 100%;
+  border-collapse: collapse; /* Remove espaços duplos entre as bordas */
+  font-family: sans-serif;
+  text-align: left;
+}
+.tabela-dados th {
+  background-color: var(--principal);
+  color: white;
+  padding: 12px 15px;
+  font-weight: 600;
+}
+.tabela-dados td {
+  padding: 10px 15px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #333;
+}
+.tabela-dados tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+.tabela-dados tr:hover {
+  background-color: #f1f3f5;
 }

@@ -30,9 +30,17 @@
   <section class="resultado">
   <div>
     {% if resultado_pandas != None %}
+       <h2>Prévia dos Dados (Primeiras 5 linhas):</h2>
+       <div class="tabela-container">
+        {{head_pandas | safe}}
+       </div>
        <h2>Resumo Estatístico dos Dados:</h2>
        <div class="tabela-container">
          {{ resultado_pandas | safe }}
+       </div>
+       <h2>Estrutura Geral do Arquivo:</h2>
+       <div class="tabela-container">
+        {{info_pandas | safe}}
        </div>
     {% else %}
       <p>Seu resultado aparecerá aqui</p>
