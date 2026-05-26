@@ -9,7 +9,6 @@ def index():
 
     if request.method == 'POST':
         file = request.files.get('csv')
-        # Adicionei um ponto antes do csv aqui (.csv) para garantir a validação da extensão
         if file and file.filename.endswith('.csv'):
             try:
                 df = pd.read_csv(file)
@@ -18,8 +17,6 @@ def index():
             except Exception as e:
                 resultado = f"Erro ao processar o arquivo: {e}"
                 
-    # VEJA AQUI: Recuado para a esquerda, fora do "if". 
-    # Agora ele atende tanto o GET quanto o POST!
     return render_template('index.html', resultado_pandas=resultado)
   
 if __name__ == '__main__':
