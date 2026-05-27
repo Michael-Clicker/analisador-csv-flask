@@ -39,6 +39,6 @@ Ter o Python instalado globalmente em sua máquina.
 
 ### 1. Clonar o repositório
 ```bash
-git clone [https://github.com/Michael-Clicker/NOME_DO_REPOSITORIO.git](https://github.com/Michael-Clicker/NOME_DO_REPOSITORIO.git)
+git clone (https://github.com/Michael-Clicker/analisador-csv-flask)
 cd NOME_DO_REPOSITORIO
 python app.py
