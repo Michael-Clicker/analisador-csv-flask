@@ -2,6 +2,9 @@
 
 O Analisador de Dados CSV é uma aplicação web interativa desenvolvida para simplificar e automatizar a etapa inicial de análise exploratória de dados. O projeto consome arquivos CSV brutos carregados pelo usuário e renderiza de forma dinâmica um painel triplo de relatórios estatísticos e estruturais, eliminando a necessidade de abrir softwares pesados de planilhas ou digitar códigos em notebooks.
 
+<img width="1921" height="912" alt="preview_csv-flask" src="https://github.com/user-attachments/assets/c80d28da-4e5e-4edb-a91d-6cc34882af4f" />
+
+
 ## 🚀 Funcionalidades e Painéis
 
 O sistema processa o arquivo em segundo plano e constrói instantaneamente três visões analíticas na tela:
