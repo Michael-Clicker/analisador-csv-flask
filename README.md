@@ -44,4 +44,5 @@ Ter o Python instalado globalmente em sua máquina.
 ```bash
 git clone (https://github.com/Michael-Clicker/analisador-csv-flask)
 cd NOME_DO_REPOSITORIO
+pip install -r requirements.txt
 python app.py
